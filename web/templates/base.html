@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sorae{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='coffee.css') }}">
+    <link rel="icon" href="https://img.icons8.com/ios-filled/50/4B2E2B/coffee.png">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <span class="logo">☕ Sorae</span>
+            <span class="nav-links">
+                <a href="/">Home</a>
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+                {% if session.get('authenticated') %}
+                <a href="/dashboard">Dashboard</a>
+                <a href="/logout">Logout</a>
+                {% endif %}
+            </span>
+        </div>
+    </nav>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flashes">
+            {% for category, message in messages %}
+              <li class="flash {{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <span>Made with ☕ by Sorae | <a href="mailto:sorae.net@gmail.com">sorae.net@gmail.com</a></span>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard - Sorae{% endblock %}
+{% block content %}
+<h2 style="color:#7B4B3A;">Welcome to your Sorae Dashboard!</h2>
+<p style="font-size:1.1rem;">Logged in as <b>{{ email }}</b></p>
+<div style="margin:2rem 0;">
+    <a href="/logout"><button style="background:#B23A48;">Logout</button></a>
+</div>
+<p style="color:#A47149;">More features coming soon: backup codes, login history, and more!</p>
+{% endblock %}

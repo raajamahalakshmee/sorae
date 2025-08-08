@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Register - Sorae{% endblock %}
+{% block content %}
+<h2 style="color:#7B4B3A;">Register for Sorae</h2>
+<p>Enter your email to receive a magic login link. <br>We’ll send it from <b>sorae.net@gmail.com</b>.</p>
+<form method="post">
+    <label for="email">Email address</label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com">
+    <input type="submit" value="Send Magic Link">
+</form>
+<p style="margin-top:1rem; color:#A47149;">Already have a token? <a href="/login">Login here</a>.</p>
+{% endblock %}
